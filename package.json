@@ -1,11 +1,52 @@
 {
   "name": "@chargly/sdk",
-  "version": "0.0.1",
-  "description": "Developer SDK for Chargly",
+  "version": "0.1.0",
+  "description": "Credit-first AI billing SDK for wallets, event metering, top-ups, and Pricing Advisor.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "example": "ts-node examples/quickstart.ts",
+    "smoke": "ts-node scripts/smoke-test.ts",
+    "consumer-check": "npm run build && npx tsc --noEmit -p scripts/consumer-check.tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "homepage": "https://chargly.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charglyai/chargly-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/charglyai/chargly-sdk/issues"
+  },
+  "keywords": [
+    "ai",
+    "billing",
+    "credits",
+    "metering",
+    "pricing",
+    "stripe",
+    "mcp"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc"
-  },
-  "license": "MIT"
+  "sideEffects": false,
+  "devDependencies": {
+    "ts-node": "^10.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0"
+  }
 }
